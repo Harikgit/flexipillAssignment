@@ -26,6 +26,7 @@ Steps to run the Tests
 8)	Create a New Java Class:
     •	Right-click on the loginCartOrder package and select New > Class.
     •	Name the class FlexLCO and click Finish.
+  	
   	![Screenshot 2024-06-06 124709](https://github.com/Harikgit/flexipillAssignment/assets/123169169/84a413f0-cd64-4026-a32b-124d875a4b53)
 10)	Add Code to the FlexLCO.java File:
     •	Open the newly created FlexLCO.java file.
