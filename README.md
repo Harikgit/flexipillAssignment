@@ -39,11 +39,11 @@ Steps to run the Tests
 13)	Check the Output in the Console:
     •	Open the Console view in Eclipse to see the output of your test.
     •	Ensure that the test runs successfully and the correct status code is returned.
-   	![Screenshot 2024-06-06 130052](https://github.com/Harikgit/flexipillAssignment/assets/123169169/b69daea2-7f19-4fb9-b0dd-f8d6571ae9f0)
+   	![Screenshot 2024-06-06 150615](https://github.com/Harikgit/flexipillAssignment/assets/123169169/1347c974-093e-449a-bcde-9e2094cb3239)
 15)	Check the Emailable Report:
     •	After running the test, go to your project directory in Eclipse.
     •	Navigate to the test-output folder.
     •	Locate the emailable-report.html file.
    	![Screenshot 2024-06-06 125901](https://github.com/Harikgit/flexipillAssignment/assets/123169169/8b5a214e-f0ac-4605-b29e-41dcc7ce02a9)
     •	Open the emailable-report.html file in a web browser to view the detailed TestNG report.
-   	![Screenshot 2024-06-06 131640](https://github.com/Harikgit/flexipillAssignment/assets/123169169/d8aed49a-0a8b-4cc4-a63f-24721766f141)
+   	![Screenshot 2024-06-06 150941](https://github.com/Harikgit/flexipillAssignment/assets/123169169/aeb8c35f-8502-4d01-85c4-9302e7158d39)
