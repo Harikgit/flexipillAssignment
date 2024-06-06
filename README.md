@@ -1,6 +1,6 @@
 # flexipillAssignment
 API automation done using Restassured according to the assignment. 
-Read TestSteps.docx for step by step process to run the automation program.
+Download TestSteps.docx for the following step by step process.
 
 Steps to run the Tests
 1)	Create a Maven Project in Eclipse:
