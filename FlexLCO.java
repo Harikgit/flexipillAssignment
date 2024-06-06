@@ -31,7 +31,7 @@ public class FlexLCO {
 //        System.out.println("Response 1: " + response.asPrettyString());
         int success_id = response.path("success");
         Assert.assertEquals(success_id, 1);
-        System.out.println("Logged in");
+        System.out.println("\nLogged in");
 	}
 	
 	@Test(priority = 1)
@@ -95,6 +95,27 @@ public class FlexLCO {
 //        System.out.println("Response 5: "+response.asPrettyString());
         int success_id = response.path("sucess");
         Assert.assertEquals(success_id, 0);
-        System.out.println("Negative Authorization Test is done\n");
+        System.out.println("Negative Authorization Test is done");
+        Response qResponse = RestAssured.given()
+                .contentType(ContentType.JSON)
+                .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjM3NjksImF1dGhfdHlwZSI6ImV4dGVybmFsX2F1dGgiLCJpYXQiOjE3MTczOTcxMjQsImV4cCI6MTcxODAwMTkyNH0.RDMroLyvijoSApVQuNSp6vgyb2mjdYpoJ5VgTyUDpfw")
+                .body("{\"increaseQuantityBy\":\"0\",\"drugCode\": 1110806}")
+                .post("https://backendstaging.platinumrx.in/cart/addItem");
+//        System.out.println("qResponse: "+qResponse.asPrettyString());
+        String cartDetails=(qResponse.path("message.userCart")).toString();
+//        System.out.println("Cart Details: "+cartDetails);
+        Assert.assertEquals(cartDetails, "[]");
+        System.out.println("Empty Cart test is done");
+        Response codeResponse = RestAssured.given()
+                .contentType(ContentType.JSON)
+                .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjM3NjksImF1dGhfdHlwZSI6ImV4dGVybmFsX2F1dGgiLCJpYXQiOjE3MTczOTcxMjQsImV4cCI6MTcxODAwMTkyNH0.RDMroLyvijoSApVQuNSp6vgyb2mjdYpoJ5VgTyUDpfw")
+                .body("{\"increaseQuantityBy\":\"2\",\"drugCode\": -6}")
+                .post("https://backendstaging.platinumrx.in/cart/addItem");
+//        System.out.println("codeResponse: "+codeResponse.asPrettyString());
+        String codeErrMsg=codeResponse.path("errorMessage");
+        Assert.assertEquals(codeErrMsg, "Error with addItemToCart -> Drug Data Not Found in Catalog");
+//        int codeSuccess_id = codeResponse.path("success");
+//        Assert.assertEquals(codeSuccess_id, 0);
+        System.out.println("Negative drug code test is done\n");
 	}
 }
